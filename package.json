@@ -8,7 +8,16 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ci:lint": "eslint .",
+    "ci:build": "vite build",
+    "ci:test": "vitest run",
+    "ci:env:validate": "node scripts/validate-environment.js",
+    "ci:env:setup": "node scripts/setup-environment.js",
+    "ci:release": "node scripts/prepare-release.js",
+    "ci:integration": "node scripts/integration-tests.js",
+    "ci:smoke": "node scripts/smoke-release.js",
+    "ci:release:health": "node scripts/release-health-check.js"
   },
   "dependencies": {
     "axios": "^1.10.0",
@@ -46,6 +55,10 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.3",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vitest": "^2.1.4",
+    "jsdom": "^24.0.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.6"
   }
 }
