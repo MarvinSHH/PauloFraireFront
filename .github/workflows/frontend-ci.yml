@@ -3,20 +3,14 @@ name: Frontend CI/CD
 on:
   push:
     branches: [ "main", "gamificacioncicd" ]
-    paths:
-      - 'PauloFraireFront/**'
   pull_request:
     branches: [ "main", "gamificacioncicd" ]
-    paths:
-      - 'PauloFraireFront/**'
   workflow_dispatch:
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: PauloFraireFront
+    # For single-repo frontend, run in repository root
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20.x'
           cache: 'npm'
 
       - name: Install dependencies
@@ -63,9 +57,6 @@ jobs:
       RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
       RENDER_SERVICE_ID_FRONTEND: ${{ secrets.RENDER_SERVICE_ID_FRONTEND }}
       FRONTEND_PUBLIC_URL: ${{ secrets.FRONTEND_PUBLIC_URL }}
-    defaults:
-      run:
-        working-directory: PauloFraireFront
     steps:
       - name: Trigger Render Deploy via Hook
         if: ${{ env.RENDER_DEPLOY_HOOK_URL_FRONTEND != '' }}
