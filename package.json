@@ -13,9 +13,9 @@
     "ci:build": "vite build",
     "ci:test": "vitest run --passWithNoTests",
     "ci:env:validate": "node scripts/validate-environment.js",
-    "ci:env:setup": "node scripts/setup-environment.js",
+    "ci:env:setup": "node scripts/setup-environment.cjs",
     "ci:release": "node scripts/prepare-release.js",
-    "ci:integration": "node scripts/integration-tests.js",
+    "ci:integration": "node scripts/integration-tests.cjs",
     "ci:smoke": "node scripts/smoke-release.js",
     "ci:release:health": "node scripts/release-health-check.js"
   },
