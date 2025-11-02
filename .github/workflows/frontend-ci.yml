@@ -46,6 +46,10 @@ jobs:
         run: npm run ci:env:setup
 
       - name: Smoke test on preview (dist)
+        env:
+          FRONTEND_PUBLIC_URL: ${{ secrets.FRONTEND_PUBLIC_URL }}
+          RELEASE_MAX_RETRIES: 10
+          RELEASE_RETRY_DELAY_MS: 5000
         run: npm run ci:smoke
 
   deploy:
