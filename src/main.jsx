@@ -47,7 +47,7 @@ import EditBeca from "./admin/pages/beca/EditBeca.jsx";
 import QuienesSomos from "./admin/pages/QuienesSomos/QuienesSomos.jsx";
 import HistoriaCultura from "./admin/pages/historiaCultura/HistoriaCultura.jsx";
 import AddEventos from "./admin/pages/Eventos/Eventos.jsx";
-import Lecturas from "./admin/pages/librosUsuarios/lecturas.jsx";
+import Lecturas from "./admin/pages/librosUsuarios/Lecturas.jsx";
 import AgregarEditarLibro from "./admin/pages/librosUsuarios/AgregarEditarLibro.jsx";
 import GestionarCuestionario from "./admin/pages/librosUsuarios/GestionarCuestionario.jsx";
 import InsigniasU from "./admin/pages/librosUsuarios/InsigniasU.jsx";
