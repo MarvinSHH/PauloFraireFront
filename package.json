@@ -16,7 +16,7 @@
     "ci:env:setup": "node scripts/setup-environment.cjs",
     "ci:release": "node scripts/prepare-release.js",
     "ci:integration": "node scripts/integration-tests.cjs",
-    "ci:smoke": "node scripts/smoke-release.js",
+    "ci:smoke": "node scripts/release-health-check.js",
     "ci:release:health": "node scripts/release-health-check.js"
   },
   "dependencies": {
