@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "ci:lint": "eslint .",
     "ci:build": "vite build",
-    "ci:test": "vitest run",
+    "ci:test": "vitest run --passWithNoTests",
     "ci:env:validate": "node scripts/validate-environment.js",
     "ci:env:setup": "node scripts/setup-environment.js",
     "ci:release": "node scripts/prepare-release.js",

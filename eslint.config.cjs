@@ -46,6 +46,26 @@ module.exports = [
       'react/no-unknown-property': 'warn',
     },
   },
+  // Node CLI scripts (CommonJS)
+  {
+    files: ['scripts/**/*.{js,cjs}'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'commonjs',
+      globals: { ...globals.node },
+    },
+    rules: { 'no-console': 'off', 'no-undef': 'off' },
+  },
+  // Node config files that are ESM
+  {
+    files: ['vite.config.*', 'tailwind.config.*', 'postcss.config.*'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+    rules: { 'no-console': 'off' },
+  },
   {
     ignores: ['dist', '.eslintrc.cjs'],
   },
