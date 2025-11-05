@@ -41,7 +41,7 @@ const AcademyActivities = () => {
       </div>
 
       <h1 className="font-extrabold text-4xl text-center uppercase my-10 text-gray-700">
-        Actividades Académicas
+        Actividades Académicassssssssssssssssssssssssss
       </h1>
 
       <ErrorBoundary>
