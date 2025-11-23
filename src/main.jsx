@@ -52,7 +52,7 @@ import HistoriaCultura from "./admin/pages/historiaCultura/HistoriaCultura.jsx";
 import Organizacion from "./admin/pages/organizacion/Organizacion.jsx";
 import CreateStaff from "./admin/pages/organizacion/CreateStaff.jsx";
 import EditStaff from "./admin/pages/organizacion/EditStaff.jsx";
-import Zonas from "./admin/pages/organizacion/Zonas.jsx";
+import Zonas from "./admin/pages/organizacion/zonas.jsx";
 
 // TEST-FRONT
 import AddEventos from "./admin/pages/Eventos/Eventos.jsx";
@@ -118,10 +118,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorHandler />,
     children: [
       { path: "/admin/home", element: <Dashboard /> },
-      {
-        path: "/admin/academy-activities",
-        element: <AcademyActivitiesAdmin />,
-      },
+      { path: "/admin/academy-activities", element: <AcademyActivitiesAdmin /> },
       { path: "/admin/news", element: <AdminNews /> },
       { path: "/admin/add-news", element: <AddNews /> },
       { path: "/admin/edit-news/:id", element: <EditNews /> },
@@ -156,19 +153,13 @@ const router = createBrowserRouter([
       { path: "/admin/add-staff", element: <CreateStaff /> },
       { path: "/admin/edit-staff/:id", element: <EditStaff /> },
       { path: "/admin/zonas", element: <Zonas /> },
-      {
-        path: "/admin/multimediainscripciones",
-        element: <Multimediainscripciones />,
-      },
+      { path: "/admin/multimediainscripciones", element: <Multimediainscripciones /> },
 
       // TEST-FRONT
       { path: "/admin/add-evento", element: <AddEventos /> },
 
       // Contexto contemporáneo
-      {
-        path: "/admin/contexto-contemporaneo-admin",
-        element: <ContextContemporaneoAdmin />,
-      },
+      { path: "/admin/contexto-contemporaneo-admin", element: <ContextContemporaneoAdmin /> },
 
       { path: "*", element: <ErrorPage404 /> },
     ],
