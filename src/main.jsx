@@ -61,7 +61,7 @@ import AddEventos from "./admin/pages/Eventos/Eventos.jsx";
 import Empresa from "./admin/pages/Empresa/Configempresa.jsx";
 
 // Multimedia
-import Multimediainscripciones from "./admin/pages/multimediainscripciones/Multimediainscripciones.jsx";
+import Multimediainscripciones from "./admin/pages/multimediainscripciones/multimediainscripciones.jsx";
 
 // Público
 import ContextContemporaneo from "./contexto-comtemporaneo/ContextContemporaneo.jsx";
