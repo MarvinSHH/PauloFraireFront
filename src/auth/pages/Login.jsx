@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosEyeOff } from "react-icons/io";
 import { IoLogIn } from "react-icons/io5";
 import Spinner from "../../components/Spinner";
 import { toast } from "react-hot-toast";
 import clientAxios from "../../config/clientAxios";
+import ReCAPTCHA from "react-google-recaptcha";
 import ErrorHandler from "../../components/ErrorHandler";
 
 const Login = () => {
@@ -15,12 +16,21 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState(null);
   const [error, setError] = useState(null);
+  const captchaRef = useRef(null);
 
   const togglePassword = () => setShowPassword(!showPassword);
 
+  const handleCaptchaChange = (value) => setCaptchaValue(value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaValue) {
+      toast.error("Por favor verifica que no eres un robot.");
+      return;
+    }
 
     const cleanUser = {
       email: user.email.trim(),
@@ -36,6 +46,7 @@ const Login = () => {
     try {
       const response = await clientAxios.post("/login", {
         ...cleanUser,
+        captcha: captchaValue,
       });
 
       if (response.status === 200) {
@@ -48,7 +59,7 @@ const Login = () => {
         } else if (userData.role === 1) {
           navigate("/admin/home");
         } else if (userData.role === 2) {
-          navigate("/admin/home");
+        navigate("/admin/home");
         } else {
           toast.error("Rol desconocido. Contacta al administrador.");
         }
@@ -70,6 +81,10 @@ const Login = () => {
       toast.error(mensaje);
     } finally {
       setLoading(false);
+      setCaptchaValue(null);
+      if (captchaRef.current) {
+        captchaRef.current.reset();
+      }
     }
   };
 
@@ -127,6 +142,14 @@ const Login = () => {
                 onClick={togglePassword}
               />
             </div>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <ReCAPTCHA
+              sitekey="6LeHymIqAAAAAIZGIyMwk1w749yFwuajNcPCUdNq"
+              onChange={handleCaptchaChange}
+              ref={captchaRef}
+            />
           </div>
 
           <div className="flex flex-row justify-between">
