@@ -52,7 +52,7 @@ import HistoriaCultura from "./admin/pages/historiaCultura/HistoriaCultura.jsx";
 import Organizacion from "./admin/pages/organizacion/Organizacion.jsx";
 import CreateStaff from "./admin/pages/organizacion/CreateStaff.jsx";
 import EditStaff from "./admin/pages/organizacion/EditStaff.jsx";
-import Zonas from "./admin/pages/organizacion/zonas.jsx";
+import Zonas from "./admin/pages/organizacion/Zonas.jsx";
 
 // TEST-FRONT
 import AddEventos from "./admin/pages/Eventos/Eventos.jsx";
