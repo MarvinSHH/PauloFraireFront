@@ -61,7 +61,7 @@ import AddEventos from "./admin/pages/Eventos/Eventos.jsx";
 import Empresa from "./admin/pages/Empresa/Configempresa.jsx";
 
 // Multimedia
-import Multimediainscripciones from "./admin/pages/multimediainscripciones/multimediainscripciones.jsx";
+import Multimediainscripciones from "./admin/pages/multimediainscripciones/Multimediainscripciones.jsx";
 
 // Público
 import ContextContemporaneo from "./contexto-comtemporaneo/ContextContemporaneo.jsx";
@@ -118,7 +118,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorHandler />,
     children: [
       { path: "/admin/home", element: <Dashboard /> },
-      { path: "/admin/academy-activities", element: <AcademyActivitiesAdmin /> },
+      {
+        path: "/admin/academy-activities",
+        element: <AcademyActivitiesAdmin />,
+      },
       { path: "/admin/news", element: <AdminNews /> },
       { path: "/admin/add-news", element: <AddNews /> },
       { path: "/admin/edit-news/:id", element: <EditNews /> },
@@ -153,13 +156,19 @@ const router = createBrowserRouter([
       { path: "/admin/add-staff", element: <CreateStaff /> },
       { path: "/admin/edit-staff/:id", element: <EditStaff /> },
       { path: "/admin/zonas", element: <Zonas /> },
-      { path: "/admin/multimediainscripciones", element: <Multimediainscripciones /> },
+      {
+        path: "/admin/multimediainscripciones",
+        element: <Multimediainscripciones />,
+      },
 
       // TEST-FRONT
       { path: "/admin/add-evento", element: <AddEventos /> },
 
       // Contexto contemporáneo
-      { path: "/admin/contexto-contemporaneo-admin", element: <ContextContemporaneoAdmin /> },
+      {
+        path: "/admin/contexto-contemporaneo-admin",
+        element: <ContextContemporaneoAdmin />,
+      },
 
       { path: "*", element: <ErrorPage404 /> },
     ],
